@@ -1,0 +1,30 @@
+<odoo>
+    <record id="res_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='references']" position="after">
+                <page string="Ilexius Vars" name="ilexius">
+                    <group>
+                        <field name="alphanumeric_id" attrs="{'readonly': [('active', '=', True)]}"></field>
+                    </group>
+                    <group>
+                        <field name="login_success_count" attrs="{'readonly': True}"></field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="res_users_tree_inherit" model="ir.ui.view">
+        <field name="name">res.users.tree.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='login_date']" position="after">
+                <field name="alphanumeric_id" attrs="{'readonly': True}"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
